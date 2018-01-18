@@ -1,8 +1,8 @@
 package com.jdunkerley;
 
 import com.tableausoftware.TableauException;
-import com.tableausoftware.common.Type;
-import com.tableausoftware.extract.*;
+import com.tableausoftware.common.*;
+import com.tableausoftware.hyperextract.*;
 
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
