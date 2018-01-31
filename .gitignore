@@ -2,3 +2,4 @@
 *.log
 hyper_db
 target
+*.hyper

@@ -131,7 +131,12 @@ public class MakeTDEFromJSON {
             definition.setDefaultCollation( Collation.EN_GB );
 
             for (String tableauField : fieldMap.keySet()) {
-                definition.addColumn(tableauField, fieldMap.get(tableauField));
+                Type columnType = fieldMap.get(tableauField);
+                if (columnType == null) {
+                    columnType = Type.BOOLEAN;
+                }
+
+                definition.addColumn(tableauField, columnType);
             }
 
             return definition;
@@ -169,13 +174,27 @@ public class MakeTDEFromJSON {
                     case INTEGER:
                         if (jsonValue instanceof Long) {
                             row.setLongInteger(i, (Long)jsonValue);
+                        } else if (jsonValue instanceof Integer) {
+                            row.setLongInteger(i, (Integer)jsonValue);
+                        } else if (jsonValue instanceof Short) {
+                            row.setLongInteger(i, (Short)jsonValue);
+                        } else if (jsonValue instanceof Byte) {
+                            row.setLongInteger(i, (Byte)jsonValue);
                         }
                         break;
                     case DOUBLE:
                         if (jsonValue instanceof Double) {
                             row.setDouble(i, (Double)jsonValue);
+                        } else if (jsonValue instanceof Float) {
+                            row.setDouble(i, (Float)jsonValue);
                         } else if (jsonValue instanceof Long) {
                             row.setLongInteger(i, (Long)jsonValue);
+                        } else if (jsonValue instanceof Integer) {
+                            row.setLongInteger(i, (Integer)jsonValue);
+                        } else if (jsonValue instanceof Short) {
+                            row.setLongInteger(i, (Short)jsonValue);
+                        } else if (jsonValue instanceof Byte) {
+                            row.setLongInteger(i, (Byte)jsonValue);
                         }
                         break;
                     case DATE:

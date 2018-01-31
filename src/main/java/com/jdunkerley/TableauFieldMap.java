@@ -25,8 +25,16 @@ public class TableauFieldMap {
                 fieldTypes.put(fieldName, null);
             } else if (fieldValue instanceof Boolean) {
                 fieldTypes.put(fieldName, Type.BOOLEAN);
+            } else if (fieldValue instanceof Byte) {
+                fieldTypes.put(fieldName, Type.INTEGER);
+            } else if (fieldValue instanceof Short) {
+                fieldTypes.put(fieldName, Type.INTEGER);
+            } else if (fieldValue instanceof Integer) {
+                fieldTypes.put(fieldName, Type.INTEGER);
             } else if (fieldValue instanceof Long) {
                 fieldTypes.put(fieldName, Type.INTEGER);
+            } else if (fieldValue instanceof Float) {
+                fieldTypes.put(fieldName, Type.DOUBLE);
             } else if (fieldValue instanceof Double) {
                 fieldTypes.put(fieldName, Type.DOUBLE);
             } else if (fieldValue instanceof LocalDate) {
